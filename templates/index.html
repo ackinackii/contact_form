@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voice Email Assistant</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 2rem auto; line-height: 1.5; }
+    button { font-size: 1rem; padding: 0.8rem 1rem; margin-right: 0.5rem; }
+    #output, #transcript { border: 1px solid #777; border-radius: 8px; padding: 1rem; min-height: 80px; }
+    .hint { font-size: 0.95rem; color: #666; }
+    .card { margin-bottom: 1.25rem; }
+    input { width: 100%; padding: 0.6rem; margin: 0.3rem 0; }
+  </style>
+</head>
+<body>
+  <h1>Voice-Based Email System</h1>
+  <p>Speak commands to send, read, reply, and delete emails. This interface is designed for keyboard and screen-reader accessibility.</p>
+
+  <section class="card" aria-labelledby="auth-title">
+    <h2 id="auth-title">Email authentication</h2>
+    <label for="email">Email address</label>
+    <input id="email" autocomplete="username" placeholder="you@example.com" />
+    <label for="password">App password</label>
+    <input id="password" type="password" autocomplete="current-password" placeholder="App password" />
+  </section>
+
+  <section class="card" aria-labelledby="voice-title">
+    <h2 id="voice-title">Voice command</h2>
+    <button id="startBtn" aria-label="Start voice command">🎤 Start Listening</button>
+    <button id="stopBtn" aria-label="Stop voice command">⏹ Stop</button>
+    <p class="hint">Example: “Send email to friend@example.com subject hello body how are you.”</p>
+    <h3>Transcript</h3>
+    <div id="transcript" aria-live="polite"></div>
+  </section>
+
+  <section class="card" aria-labelledby="response-title">
+    <h2 id="response-title">Assistant response</h2>
+    <div id="output" aria-live="assertive"></div>
+  </section>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
